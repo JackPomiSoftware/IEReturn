@@ -1,0 +1,8 @@
+IE Return allows you to enable Internet Explorer in newer Windows 10 and Windows 11 versions. However, the variety of options may confuse user, so here are the instructions:
+
+- For Windows 10 1507-21H1
+    1. Turn off BHO in BHO Options.
+    2. Launch IE as an .exe file.
+
+- For Windows 11 and Windows 10 21H2 and later
+    1. Launch IE as a .vbs file.
