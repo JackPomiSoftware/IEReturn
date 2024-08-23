@@ -1,0 +1,10 @@
+C:\Users\Jack Pomi\source\repos\IE Return\bin\Debug\IE Return.exe.config
+C:\Users\Jack Pomi\source\repos\IE Return\bin\Debug\IE Return.exe
+C:\Users\Jack Pomi\source\repos\IE Return\bin\Debug\IE Return.pdb
+C:\Users\Jack Pomi\source\repos\IE Return\obj\Debug\IE Return.csproj.AssemblyReference.cache
+C:\Users\Jack Pomi\source\repos\IE Return\obj\Debug\IE_Return.Form1.resources
+C:\Users\Jack Pomi\source\repos\IE Return\obj\Debug\IE_Return.Properties.Resources.resources
+C:\Users\Jack Pomi\source\repos\IE Return\obj\Debug\IE Return.csproj.GenerateResource.cache
+C:\Users\Jack Pomi\source\repos\IE Return\obj\Debug\IE Return.csproj.CoreCompileInputs.cache
+C:\Users\Jack Pomi\source\repos\IE Return\obj\Debug\IE Return.exe
+C:\Users\Jack Pomi\source\repos\IE Return\obj\Debug\IE Return.pdb
