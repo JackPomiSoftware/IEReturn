@@ -51,7 +51,6 @@
             this.StartHome = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.HomPag = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.usecur = new System.Windows.Forms.Button();
@@ -59,6 +58,7 @@
             this.usebla = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.TilesOpen = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.LinksChoose = new System.Windows.Forms.ComboBox();
             this.LinksApply = new System.Windows.Forms.Button();
@@ -76,7 +76,6 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.TilesOpen = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -105,7 +104,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 40);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(392, 246);
+            this.tabControl1.Size = new System.Drawing.Size(392, 284);
             this.tabControl1.TabIndex = 7;
             // 
             // tabPage1
@@ -118,7 +117,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(384, 220);
+            this.tabPage1.Size = new System.Drawing.Size(384, 258);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Browser Control";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -284,7 +283,7 @@
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(384, 220);
+            this.tabPage2.Size = new System.Drawing.Size(384, 258);
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Homepage and Startup";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -296,7 +295,7 @@
             this.groupBox2.Controls.Add(this.StartTabs);
             this.groupBox2.Controls.Add(this.ApplyStartup);
             this.groupBox2.Controls.Add(this.StartHome);
-            this.groupBox2.Location = new System.Drawing.Point(3, 134);
+            this.groupBox2.Location = new System.Drawing.Point(3, 170);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(378, 84);
             this.groupBox2.TabIndex = 17;
@@ -367,7 +366,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.HomPag);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.usecur);
@@ -375,7 +373,7 @@
             this.groupBox1.Controls.Add(this.usebla);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(378, 125);
+            this.groupBox1.Size = new System.Drawing.Size(378, 160);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Home page";
@@ -390,23 +388,13 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Enabled = false;
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(41, 58);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(211, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Multitab home pages are not yet supported.";
-            // 
             // HomPag
             // 
             this.HomPag.Location = new System.Drawing.Point(45, 35);
+            this.HomPag.Multiline = true;
             this.HomPag.Name = "HomPag";
             this.HomPag.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.HomPag.Size = new System.Drawing.Size(327, 20);
+            this.HomPag.Size = new System.Drawing.Size(327, 86);
             this.HomPag.TabIndex = 2;
             // 
             // label6
@@ -422,11 +410,11 @@
             // 
             this.usecur.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.usecur.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.usecur.Location = new System.Drawing.Point(135, 96);
+            this.usecur.Location = new System.Drawing.Point(135, 127);
             this.usecur.Name = "usecur";
             this.usecur.Size = new System.Drawing.Size(75, 23);
             this.usecur.TabIndex = 3;
-            this.usecur.Text = "Use current";
+            this.usecur.Text = "Set current";
             this.usecur.UseVisualStyleBackColor = true;
             this.usecur.Click += new System.EventHandler(this.usecur_Click);
             // 
@@ -434,7 +422,7 @@
             // 
             this.usedef.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.usedef.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.usedef.Location = new System.Drawing.Point(216, 96);
+            this.usedef.Location = new System.Drawing.Point(216, 127);
             this.usedef.Name = "usedef";
             this.usedef.Size = new System.Drawing.Size(75, 23);
             this.usedef.TabIndex = 4;
@@ -446,7 +434,7 @@
             // 
             this.usebla.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.usebla.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.usebla.Location = new System.Drawing.Point(297, 96);
+            this.usebla.Location = new System.Drawing.Point(297, 127);
             this.usebla.Name = "usebla";
             this.usebla.Size = new System.Drawing.Size(75, 23);
             this.usebla.TabIndex = 5;
@@ -461,7 +449,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(384, 220);
+            this.tabPage4.Size = new System.Drawing.Size(384, 258);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "Default Browser";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -472,12 +460,23 @@
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.LinksChoose);
             this.groupBox4.Controls.Add(this.LinksApply);
-            this.groupBox4.Location = new System.Drawing.Point(3, 130);
+            this.groupBox4.Location = new System.Drawing.Point(3, 162);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(378, 88);
             this.groupBox4.TabIndex = 22;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Opening links";
+            // 
+            // TilesOpen
+            // 
+            this.TilesOpen.AutoSize = true;
+            this.TilesOpen.Location = new System.Drawing.Point(6, 59);
+            this.TilesOpen.Name = "TilesOpen";
+            this.TilesOpen.Size = new System.Drawing.Size(227, 17);
+            this.TilesOpen.TabIndex = 17;
+            this.TilesOpen.Text = "Open Internet Explorer tiles on the desktop";
+            this.TilesOpen.UseVisualStyleBackColor = true;
+            this.TilesOpen.CheckedChanged += new System.EventHandler(this.TilesOpen_CheckedChanged);
             // 
             // label2
             // 
@@ -524,7 +523,7 @@
             this.groupBox3.Controls.Add(this.SetDef);
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(378, 122);
+            this.groupBox3.Size = new System.Drawing.Size(378, 153);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Default web browser";
@@ -536,7 +535,7 @@
             this.DefHelp.Name = "DefHelp";
             this.DefHelp.ReadOnly = true;
             this.DefHelp.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DefHelp.Size = new System.Drawing.Size(366, 49);
+            this.DefHelp.Size = new System.Drawing.Size(366, 83);
             this.DefHelp.TabIndex = 21;
             this.DefHelp.Text = resources.GetString("DefHelp.Text");
             // 
@@ -587,19 +586,19 @@
             this.tabPage3.Controls.Add(this.pictureBox1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(384, 220);
+            this.tabPage3.Size = new System.Drawing.Size(384, 258);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "About";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(0, 62);
+            this.textBox1.Location = new System.Drawing.Point(0, 44);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(384, 158);
+            this.textBox1.Size = new System.Drawing.Size(384, 211);
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
@@ -608,29 +607,30 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(121, 46);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 13);
+            this.label1.Size = new System.Drawing.Size(131, 26);
             this.label1.TabIndex = 1;
-            this.label1.Text = "IE Return. Version 3.0.0";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Text = "Version: 3.1.0b.ier.260329\r\nRelease branch: RTM";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(83, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(212, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(218, 40);
+            this.pictureBox1.Size = new System.Drawing.Size(168, 33);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // linkLabel1
             // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(295, 287);
+            this.linkLabel1.Location = new System.Drawing.Point(295, 327);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(93, 13);
             this.linkLabel1.TabIndex = 3;
@@ -649,8 +649,9 @@
             // 
             // linkLabel3
             // 
+            this.linkLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(244, 287);
+            this.linkLabel3.Location = new System.Drawing.Point(244, 327);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(46, 13);
             this.linkLabel3.TabIndex = 9;
@@ -660,31 +661,21 @@
             // 
             // pictureBox6
             // 
+            this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(227, 286);
+            this.pictureBox6.Location = new System.Drawing.Point(227, 326);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(16, 16);
             this.pictureBox6.TabIndex = 10;
             this.pictureBox6.TabStop = false;
-            // 
-            // TilesOpen
-            // 
-            this.TilesOpen.AutoSize = true;
-            this.TilesOpen.Location = new System.Drawing.Point(6, 59);
-            this.TilesOpen.Name = "TilesOpen";
-            this.TilesOpen.Size = new System.Drawing.Size(227, 17);
-            this.TilesOpen.TabIndex = 17;
-            this.TilesOpen.Text = "Open Internet Explorer tiles on the desktop";
-            this.TilesOpen.UseVisualStyleBackColor = true;
-            this.TilesOpen.CheckedChanged += new System.EventHandler(this.TilesOpen_CheckedChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(391, 303);
+            this.ClientSize = new System.Drawing.Size(391, 343);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel1);
@@ -749,7 +740,6 @@
         private System.Windows.Forms.LinkLabel linkLabel3;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Label DefStatus;

@@ -21,22 +21,28 @@ namespace IE_Return
         {
             InitializeComponent();
 
-            RegistryKey startPageKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Internet Explorer\Main");
-            RegistryKey startPageKey2 = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Internet Explorer\Main");
-            if (startPageKey2.GetValue("Secondary Start Pages") != null)
+            try
             {
-                string SP = startPageKey.GetValue("Start Page").ToString();
-                string STR = startPageKey2.GetValue("Secondary Start Pages").ToString();
-                HomPag.Text = SP;
-                //string[] STR = (string[])Registry.CurrentUser.GetValue("Software\\Microsoft\\Internet Explorer\\Main", "Secondary Start Pages") as string[];
-                //for (int i = 0; i < STR.Length; i++)
-                //{
-                // HomPag.Text += Environment.NewLine + STR[i];
-                //}
+                string mainPage = "";
+                string[] secondaryPages = Array.Empty<string>();
+
+                using (RegistryKey ieKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Internet Explorer\Main", false))
+                {
+                    if (ieKey != null)
+                    {
+                        mainPage = ieKey.GetValue("Start Page", "").ToString();
+                        object secValue = ieKey.GetValue("Secondary Start Pages");
+                        if (secValue is string[])
+                            secondaryPages = (string[])secValue;
+                    }
+                }
+
+                // Combine all into textbox
+                HomPag.Lines = new[] { mainPage }.Concat(secondaryPages).ToArray();
             }
-            else
+            catch (Exception ex)
             {
-                HomPag.Text = (string)startPageKey.GetValue("Start Page");
+                MessageBox.Show("Failed to load IE home pages: " + ex.Message);
             }
 
             RegistryKey BHOKeySearch = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext\CLSID");
@@ -158,7 +164,16 @@ namespace IE_Return
         }
         private void IEopen_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("ie.vbs");
+            try
+            {
+                Type ieType = Type.GetTypeFromProgID("InternetExplorer.Application");
+                dynamic ie = Activator.CreateInstance(ieType);
+                ie.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to open Internet Explorer: " + ex.Message);
+            }
         }
 
         private void IEexe_Click(object sender, EventArgs e)
@@ -208,14 +223,43 @@ namespace IE_Return
 
         private void usecur_Click(object sender, EventArgs e)
         {
-            RegistryKey startPageKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Internet Explorer\Main", true);
-            startPageKey.SetValue("Start Page", HomPag.Text);
-            startPageKey.Close();
+            try
+            {
+                string[] lines = HomPag.Lines
+                    .Select(l => l.Trim())
+                    .Where(l => !string.IsNullOrEmpty(l))
+                    .ToArray();
+
+                if (lines.Length == 0)
+                {
+                    MessageBox.Show("Please enter at least one home page.");
+                    return;
+                }
+
+                using (RegistryKey ieKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Internet Explorer\Main", true))
+                {
+                    if (ieKey != null)
+                    {
+                        // First line = Start Page
+                        ieKey.SetValue("Start Page", lines[0]);
+
+                        // Rest = Secondary Start Pages
+                        string[] secondary = lines.Skip(1).ToArray();
+                        ieKey.SetValue("Secondary Start Pages", secondary, RegistryValueKind.MultiString);
+                    }
+                }
+
+                MessageBox.Show("Home pages updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to apply IE home pages: " + ex.Message);
+            }
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("notepad.exe",@".\help.txt");
+            System.Diagnostics.Process.Start("https://jackpomisoftware.github.io/uc/doc/ie-settings/");
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
